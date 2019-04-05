@@ -1,0 +1,56 @@
+body{
+    background-color: ghostwhite;
+}
+
+#comment_form {
+    border: 1px solid #bfbfbf52;
+    padding: 20px;
+    margin-top: 10px;
+    background-color: #bfbfbf52;
+    border-radius: 5px;
+}
+
+
+.form-gpoup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.panel-default {
+    background-color: #fefefe;
+}
+
+.img-block {
+    width: 100px;
+    background-color: gainsboro;
+    height: 100px;
+    margin: 0px 15px;
+}
+
+.panel {
+    display: flex;
+    background-color: ghostwhite;
+    margin-top: 20px;
+}
+
+.wrapper-panel{
+    width: 100%;
+}
+
+.panel-heading{
+    margin-bottom: 20px;
+}
+
+.panel-heading i{
+    font-size: 14px;
+}
+
+.panel-heading span{
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.panel-body{
+    margin-bottom: 12px;
+}
