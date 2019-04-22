@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 05 2019 г., 18:10
+-- Время создания: Апр 22 2019 г., 21:37
 -- Версия сервера: 5.7.25
 -- Версия PHP: 7.1.22
 
@@ -56,7 +56,7 @@ ALTER TABLE `tbl_comment`
 -- AUTO_INCREMENT для таблицы `tbl_comment`
 --
 ALTER TABLE `tbl_comment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
