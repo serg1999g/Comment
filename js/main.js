@@ -32,8 +32,6 @@ $(document).ready(function () {
             method: "POST",
             success: function (data) {
                 var exists = true;
-                // let result = ($.parseJSON(data));
-                // console.log(result);
                 let result = ($.parseJSON(data));
                 // проверяем наличие комантариев
                 try {
@@ -57,9 +55,6 @@ $(document).ready(function () {
                         $(".id-" + result.script[index].parent_id).after($(".id-" + result.script[index].id));
                     }
                 }
-                    
-                    // console.log(result);
-
             }
         });
     }
@@ -87,7 +82,6 @@ $(document).ready(function () {
         level = $(this);
         level = level.parent().parent().parent().parent();
         level = level[0].classList[2];
-        // console.log(parentID);
         $('#parent_id').val(comment_id);
 
         $('#' + comment_id).parent().append($('#comment_form')); // добавление формы под дочерний комент
