@@ -26,9 +26,20 @@ if (empty($post_comment_content)) {
 }
 
 if ($error == '') {
-    $query = "INSERT INTO `tbl_comment` (parent_id, text, sender_name) 
-              VALUES ('$post_parent_id', '$comment_content','$comment_name')";
-    mysqli_query($link, $query);
+    $query = "
+ INSERT INTO tbl_comment 
+ (parent_id, text, sender_name) 
+ VALUES (:parent_id, :text, :sender_name)
+ ";
+    $statement = $connect->prepare($query);
+    $statement->execute(
+        array(
+            ':parent_id' => $post_parent_id,
+            ':text'    => $comment_content,
+            ':sender_name' => $comment_name
+        )
+    );
+    
 
 
     $success = '<label class="text-success">Добавлен комментарий</label>';

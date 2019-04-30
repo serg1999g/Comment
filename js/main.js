@@ -31,11 +31,34 @@ $(document).ready(function () {
             url: "fetch_comment.php",
             method: "POST",
             success: function (data) {
-                let result = ($.parseJSON(data))
-                $('#display_comment').html(result.comment);
-                for (let index = 0; index < result.script.length; index++) {
-                    $(".id-" + result.script[index].parent_id).after($(".id-" + result.script[index].id));
+                var exists = true;
+                // let result = ($.parseJSON(data));
+                // console.log(result);
+                let result = ($.parseJSON(data));
+                // проверяем наличие комантариев
+                try {
+                    if (result.comment)
+                        exists = true;
+                } catch (e) {
+                    exists = false;
                 }
+                if (exists){
+                    $('#display_comment').html(result.comment);
+                }
+                // проверяем наличие вложенных комантариев
+                try {
+                    if (result.script.length)
+                        exists = true;
+                } catch (e) {
+                    exists = false;
+                }
+                if (exists){
+                    for (let index = 0; index < result.script.length; index++) {
+                        $(".id-" + result.script[index].parent_id).after($(".id-" + result.script[index].id));
+                    }
+                }
+                    
+                    // console.log(result);
 
             }
         });
