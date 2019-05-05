@@ -11,7 +11,12 @@ $(document).ready(function () {
             url: "add_comment.php",
             method: "POST",
             data: form_data,
-            success: function () {
+            success: function (data) {
+                let result = ($.parseJSON(data));
+                $(".status").html(result.message);
+                // $(".back").after(result.message);
+                // console.log(result.message);
+                
                 load_last_comment();
                 text = document.getElementById('comment_content');
                 text.value = '';

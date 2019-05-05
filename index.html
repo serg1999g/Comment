@@ -19,6 +19,7 @@
                     <form method="POST" id="comment_form" class="form">
                         <div class="form-group">
                             <input type="text" name="comment_name" id="comment_name" class="form-control" required="required" placeholder="Введите Имя" maxlength="14" />
+                            <!-- <input type="text" name="comment_name" id="comment_name" class="form-control" placeholder="Введите Имя" maxlength="14" /> -->
                         </div>
                         <div class="form-group">
                             <textarea name="comment_content" id="comment_content" class="form-control" placeholder="Комментарий" rows="5" required="required"></textarea>
@@ -27,6 +28,7 @@
                             <input type="hidden" name="parent_id" id="parent_id" value="0" />
                             <input type="submit" name="submit" id="submit" class="btn btn-primary" value="Отправить" />
                             <input type="submit" name="submit" class="btn btn-warning back hide" value="Новый комментарий" />
+                            <div class="status"></div>
                             <span id="comment_message"></span>
                         </div>
                     </form>

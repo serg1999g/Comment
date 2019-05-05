@@ -13,8 +13,8 @@ $post_comment_content = $_POST["comment_content"];
 $post_parent_id = (int)$_POST['parent_id'];
 
 
-if (strlen($post_comment_name) > 15) {
-    $error .= '<p class="text-danger">Слишком длинное имя</p>>';
+if (mb_strlen($post_comment_name) > 15) {
+    $error .= '<p class="text-danger">Слишком длинное имя</p>';
 }
 
 
@@ -44,11 +44,8 @@ if ($error == '') {
             ':sender_name' => $comment_name
         )
     );
+    $success = '<p class="text-success">Добавлен комментарий</p>';
 
-    print_r($varToCheck);
-
-
-    $success = '<label class="text-success">Добавлен комментарий</label>';
 }
 
 if (empty($error)) {
@@ -62,3 +59,4 @@ if (empty($error)) {
 }
 
 echo json_encode($data);
+
