@@ -20,7 +20,7 @@ if (isset($_POST['level'])) {
 $level = $level + 1;
 
 foreach ($result as $comment[]) {
-    $output['comment'] .= '
+  $output['comment'] .= '
   <div class="wrapper id-' . $comment[0]["id"] . ' level-' . $level . ' parent-id-' . $row["parent_id"] . '">
   <div class="panel panel-default">
   <div class=img-block>

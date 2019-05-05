@@ -11,9 +11,9 @@ $level = 0;
 $statement = $connect->prepare("CHECK TABLE tbl_comment");
 $statement->execute();
 $result = $statement->fetchAll();
-if ($result[0]['Msg_type'] == 'Error'){
-    $connect->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );//Error Handling
-     $sql ="CREATE TABLE `tbl_comment` (
+if ($result[0]['Msg_type'] == 'Error') {
+    $connect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); //Error Handling
+    $sql = "CREATE TABLE `tbl_comment` (
         `id` int(11) NOT NULL,
         `parent_id` int(11) NOT NULL,
         `text` text NOT NULL,
@@ -26,8 +26,8 @@ if ($result[0]['Msg_type'] == 'Error'){
   
   ALTER TABLE `tbl_comment`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-COMMIT;" ;
-     $connect->exec($sql);
+COMMIT;";
+    $connect->exec($sql);
 }
 
 
@@ -83,4 +83,3 @@ for ($i = 0; $i < count($comments) - 1; $i++) {
 }
 
 echo json_encode($output);
-
