@@ -1,4 +1,4 @@
-body{
+body {
     background-color: ghostwhite;
 }
 
@@ -9,7 +9,6 @@ body{
     background-color: #bfbfbf52;
     border-radius: 5px;
 }
-
 
 .form-gpoup {
     display: flex;
@@ -34,24 +33,24 @@ body{
     margin-top: 20px;
 }
 
-.wrapper-panel{
+.wrapper-panel {
     width: 100%;
 }
 
-.panel-heading{
+.panel-heading {
     margin-bottom: 20px;
 }
 
-.panel-heading i{
+.panel-heading i {
     font-size: 14px;
 }
 
-.panel-heading span{
+.panel-heading span {
     font-weight: bold;
     margin-right: 20px;
 }
 
-.panel-body{
+.panel-body {
     margin-bottom: 12px;
 }
 

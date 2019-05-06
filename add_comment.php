@@ -17,7 +17,6 @@ if (mb_strlen($post_comment_name) > 15) {
     $error .= '<p class="text-danger">Слишком длинное имя</p>';
 }
 
-
 if (empty($post_comment_name)) {
     $error .= '<p class="text-danger">Введите Имя</p>';
 } else {

@@ -1,11 +1,10 @@
 $(document).ready(function () {
-    var level = '',
+    let level = '',
         back = $('.back');
-
 
     $('#comment_form').on('submit', function (event) {
         event.preventDefault();
-        var form_data = $(this).serialize();
+        let form_data = $(this).serialize();
 
         $.ajax({
             url: "add_comment.php",
@@ -14,20 +13,15 @@ $(document).ready(function () {
             success: function (data) {
                 let result = ($.parseJSON(data));
                 $(".status").html(result.message);
-                // $(".back").after(result.message);
-                // console.log(result.message);
-                
                 load_last_comment();
                 text = document.getElementById('comment_content');
                 text.value = '';
                 $('#display_comment').before($('#comment_form'));
                 $('#parent_id').val("0"); // reset parent_id
                 back[0].classList.add('hide');
-
             }
-        })
+        });
     });
-
 
     load_comment();
 
@@ -36,8 +30,8 @@ $(document).ready(function () {
             url: "fetch_comment.php",
             method: "POST",
             success: function (data) {
-                var exists = true;
-                let result = ($.parseJSON(data));
+                let exists = true,
+                    result = ($.parseJSON(data));
                 // проверяем наличие комантариев
                 try {
                     if (result.comment)
@@ -45,7 +39,7 @@ $(document).ready(function () {
                 } catch (e) {
                     exists = false;
                 }
-                if (exists){
+                if (exists) {
                     $('#display_comment').html(result.comment);
                 }
                 // проверяем наличие вложенных комантариев
@@ -55,7 +49,7 @@ $(document).ready(function () {
                 } catch (e) {
                     exists = false;
                 }
-                if (exists){
+                if (exists) {
                     for (let index = 0; index < result.script.length; index++) {
                         $(".id-" + result.script[index].parent_id).after($(".id-" + result.script[index].id));
                     }
@@ -72,17 +66,16 @@ $(document).ready(function () {
                 level: level
             },
             success: function (data) {
-                let result = ($.parseJSON(data))
+                let result = ($.parseJSON(data));
                 $('#display_comment').append(result.comment);
                 $(".id-" + result.script[0].parent_id).after($(".id-" + result.script[0].id));
                 level = "level-0";
             }
-        })
+        });
     }
 
-
     $(document).on('click', '.reply', function () {
-        var comment_id = $(this).attr("id");
+        let comment_id = $(this).attr("id");
         parentID = $(this).attr("id");
         level = $(this);
         level = level.parent().parent().parent().parent();
@@ -93,7 +86,6 @@ $(document).ready(function () {
         back[0].classList.remove('hide');
         $('#comment_name').focus();
     });
-
 
 
     // кнопка возврата к добавлению родительских комментариев

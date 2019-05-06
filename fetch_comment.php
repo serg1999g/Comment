@@ -5,7 +5,7 @@ require_once('db.php');
 
 $comment = '';
 $level = 0;
-
+$output=[];
 
 /* Создаем таблицу */
 $statement = $connect->prepare("CHECK TABLE tbl_comment");
@@ -21,22 +21,19 @@ if ($result[0]['Msg_type'] == 'Error') {
         `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
       
-      ALTER TABLE `tbl_comment`
-  ADD PRIMARY KEY (`id`);
+        ALTER TABLE `tbl_comment`
+        ADD PRIMARY KEY (`id`);
   
-  ALTER TABLE `tbl_comment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-COMMIT;";
+        ALTER TABLE `tbl_comment`
+        MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+        COMMIT;";
     $connect->exec($sql);
 }
-
-
 
 $query[0] = "SELECT * FROM tbl_comment WHERE parent_id = 0";
 $statement = $connect->prepare($query[0]);
 $statement->execute();
 $comments[0] = $statement->fetchAll();
-
 
 if (!empty($comments[0])) {
     for ($id_counter = 1; $id_counter < 10; $id_counter++) {
@@ -53,7 +50,6 @@ if (!empty($comments[0])) {
         }
     }
 }
-
 
 for ($i = 0; $i < count($comments) - 1; $i++) {
     $level = $level + 1;

@@ -18,8 +18,9 @@ if (isset($_POST['level'])) {
   $marginleft = $level * 100;
 }
 $level = $level + 1;
+$row=[];
 
-foreach ($result as $comment[]) {
+foreach ($result as $comment[0]) {
   $output['comment'] .= '
   <div class="wrapper id-' . $comment[0]["id"] . ' level-' . $level . ' parent-id-' . $row["parent_id"] . '">
   <div class="panel panel-default">
