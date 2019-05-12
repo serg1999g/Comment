@@ -5,12 +5,11 @@ require_once('db.php');
 
 // загружием последний коммент
 
-
+$output['comment']="";
 $query = "SELECT * FROM `tbl_comment` ORDER BY id DESC LIMIT 1";
 $statement = $connect->prepare($query);
 $statement->execute();
 $result = $statement->fetchAll();
-
 
 if (isset($_POST['level'])) {
   $level = $_POST['level'];
@@ -22,7 +21,7 @@ $row=[];
 
 foreach ($result as $comment[0]) {
   $output['comment'] .= '
-  <div class="wrapper id-' . $comment[0]["id"] . ' level-' . $level . ' parent-id-' . $row["parent_id"] . '">
+  <div class="wrapper id-' . $comment[0]["id"] . ' level-' . $level . ' parent-id-' . $comment[0]["parent_id"] . '">
   <div class="panel panel-default">
   <div class=img-block>
 

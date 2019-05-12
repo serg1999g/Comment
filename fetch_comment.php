@@ -5,7 +5,7 @@ require_once('db.php');
 
 $comment = '';
 $level = 0;
-$output=[];
+$output['comment']="";
 
 /* Создаем таблицу */
 $statement = $connect->prepare("CHECK TABLE tbl_comment");
